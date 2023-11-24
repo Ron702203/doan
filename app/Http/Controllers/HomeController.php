@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -55,5 +56,27 @@ class HomeController extends Controller
         $productList = Product::where('name', 'like', "%$query%")->get();
 
         return view('client.search', compact('productList', 'query'));
+    }
+
+    public function sendEmail(Request $request)
+    {
+
+        
+        $data =[
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message
+        ];
+        Mail::send('admin.emails.sendMail', compact('data'), function($email) {
+        $email->to('quangln.htra.291103@gmail.com', 'Nhật Quang');
+        });
+
+        return redirect()->back()->with('success', 'Cảm ơn bạn đã đóng góp ý kiến');
+        
+    }
+
+     public function viewMail()
+    {
+        return view('emails.contact');
     }
 }

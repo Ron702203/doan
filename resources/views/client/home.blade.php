@@ -21,6 +21,13 @@
 
 <body>
     @include('client.inc.header')
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
+        
+      
     @include('client.inc.banner')
     @include('client.inc.services')
     <div class="container">

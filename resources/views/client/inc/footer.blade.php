@@ -1,8 +1,8 @@
 <!------------------- footer -------------------->
-<div class="footer">
+<div class="footer mt-5">
     <div class="footer-top">
         <li><a href=""><img src="images/dathongbao.png" alt=""></a></li>
-        <li><a href="{{route('contact.form')}}">LIÊN HỆ</a></li>
+        <li><a href="/contact">LIÊN HỆ</a></li>
         <li><a href="">GIỚI THIỆU</a></li>
         <li>
             <a href=""><i class="fa-brands fa-facebook-f"></i></a>

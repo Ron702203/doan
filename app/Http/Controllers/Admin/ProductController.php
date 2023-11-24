@@ -77,8 +77,9 @@ class ProductController extends Controller
     {
 
         $product = Product::find($id);
+        $cate = Category::all();
 
-        return view('admin.product.edit', compact('product'));
+        return view('admin.product.edit', compact('product','cate'));
         //
     }
 

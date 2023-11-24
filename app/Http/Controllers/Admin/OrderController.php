@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -17,7 +18,25 @@ class OrderController extends Controller
         $orderList = Order::all();
         return view('admin.order.index', compact('orderList'));
     }
+    public function viewDetail(string $id)
+    {
+        //
+        $findOrder =Order::find($id);
+        $orderDetail= OrderItem::where('order_id',$id)->get();
 
+        return view('admin.order.viewDetail',compact('orderDetail','findOrder'));
+    }
+
+    public function updateOrder(Request $request){
+
+    
+
+
+        $orderUpdate = Order::find($request->order_id);
+        $orderUpdate->update(['status'=> $request->status]);
+        return redirect()->route('admin.order')->with('message', 'cập nhật thành công');
+
+    }
     /**
      * Show the form for creating a new resource.
      */

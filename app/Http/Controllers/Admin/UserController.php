@@ -33,12 +33,42 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        $user = User::create($request->only(['name', 'email', 'password', 'address', 'phone']));
-        $message = "Seccess full Created";
-        if ($user == null) {
-            $message = "Seccess full failed";
-        }
-        return redirect()->route('admin.user')->with('message', $message);
+
+        $data = $request->validate(
+            [
+                'name' => 'required|max:225',
+                'email' => 'required|unique:users',
+                'password' => 'required',
+                'cpassword' => 'required',
+                'address' => 'required',
+                'phone' => 'required',
+            ],
+            [
+                'name.required' => 'Nhập tên',
+                'email.unique' => 'Email đã tồn tại',
+                'email.required' => 'Nhập email',
+                'password.required' => 'Nhập password',
+                'address.required' => 'Nhập address',
+                'phone.required' => 'Nhập phone',
+                'cpassword.required' => 'Nhập confirm password',
+            ]);
+
+
+
+         if ($data['password'] == $data['cpassword']) {
+            $user = new User();
+            $user->email = $data['email'];
+            $user->password = $data['password'];
+            $user->name = $data['name'];
+            $user->address = $data['address'];
+            $user->phone = $data['phone'];
+            $user->save();
+            return redirect()->route('admin.user')->with('success', 'Thêm mới thành công');
+         }   
+         return redirect()->back()->with('message', 'Không trùng mật khẩu');
+
+
+       
     }
 
     /**

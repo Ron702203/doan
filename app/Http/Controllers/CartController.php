@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
+use Mail;
 use Illuminate\Support\Str;
 
 class CartController extends Controller
@@ -37,7 +38,7 @@ class CartController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng');
     }
 
     public function showCart()
@@ -107,8 +108,20 @@ class CartController extends Controller
                 $orderdetail = new OrderItem();
                 $orderdetail->order_id = $order->id;
                 $orderdetail->product_id = $carts->product_id;
+                $orderdetail->product_id = $carts->product_id;
+                $orderdetail->quantity = 2;
                 $orderdetail->save();
             }
+            $data =[
+                'name' =>$user->name,
+
+                'message' => 'cảm ơn bạn đã đăt hàng'
+            ];
+            $orderSend = OrderItem::where('order_id',$order->id)->get();
+           
+            Mail::send('admin.emails.sendOrder', compact('data','order','orderSend'), function($email) {
+            $email->to('quangln.htra.291103@gmail.com', 'Nhật Quang');
+            });
 
 
             return redirect()->back()->with('success', ' Thanh toán thành công');
