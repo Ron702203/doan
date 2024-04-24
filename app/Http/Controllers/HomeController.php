@@ -68,7 +68,7 @@ class HomeController extends Controller
             'message' => $request->message
         ];
         Mail::send('admin.emails.sendMail', compact('data'), function($email) {
-        $email->to('quangln.htra.291103@gmail.com', 'Nhật Quang');
+        $email->to('nguyenvanron.htra.291103@gmail.com', 'Văn Rôn');
         });
 
         return redirect()->back()->with('success', 'Cảm ơn bạn đã đóng góp ý kiến');

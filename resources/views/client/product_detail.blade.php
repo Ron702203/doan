@@ -123,8 +123,8 @@
 
                 </div>
                 <div class="hotline mb-4">
-                    <strong>Đặt hàng online: 0398827475</strong>
-                    <strong>Mua hàng buôn/sỉ: 039742682</strong>
+                    <strong>Đặt hàng online: 0795612274</strong>
+                    <strong>Mua hàng buôn/sỉ: 0795622517</strong>
                 </div>
             </div>
 

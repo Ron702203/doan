@@ -50,9 +50,12 @@ class ProductController extends Controller
                 ->withInput();
         }
 
+        $imageName = time().'.'.$request->img->getClientOriginalExtension();
+    $request->img->move(public_path('images'), $imageName);
+
         $product = new Product();
         $product->name = $request->name;
-        $product->img = $request->img;
+        $product->img = $imageName;
         $product->desc = $request->desc;
         $product->price = $request->price;
         $product->category_id = $request->category_id;

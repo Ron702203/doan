@@ -34,7 +34,7 @@
         <div class="row ">
             @foreach($categoryList as $item)
             <div class="col-6 col-sm-4 home__banner"><a href="{{route('catepr',$item->id)}}">
-                    <img src="{{asset('fe')}}/images/{{$item->img}}" alt="">
+                    <img src="/images/{{$item->img}}" alt="">
 
                 </a></div>
             @endforeach
@@ -76,7 +76,7 @@
                         <div class="col-lg-3 col-md-6 col-6">
                             <div class="product__content-post">
                                 <a class="" href="{{route('product_detail',['id' => $item->id])}}">
-                                    <img src="{{asset('fe')}}/images/{{ ( $item->img )}}" alt="">
+                                    <img src="/images/{{ ( $item->img )}}" alt="">
                                     <p>{{$item->name}}</p>
 
                                 </a>
@@ -107,7 +107,7 @@
                         <div class="col-lg-3 col-md-6 col-6">
                             <div class="product__content-post">
                                 <a class="" href="{{route('product_detail',['id' => $item->id])}}">
-                                    <img src="{{asset('fe')}}/images/{{ ( $item->img )}}" alt="">
+                                    <img src="/images/{{ ( $item->img )}}" alt="">
                                     <p>{{$item->name}}</p>
                                 </a>
                                 <div class="product__content-price">
@@ -135,7 +135,7 @@
                         <div class="col-lg-3 col-md-6 col-6">
                             <div class="product__content-post">
                                 <a class="" href="{{route('product_detail',['id' => $item->id])}}">
-                                    <img src="{{asset('fe')}}/images/{{ ( $item->img )}}" alt="">
+                                    <img src="images/{{ ( $item->img )}}" alt="">
                                     <p>{{$item->name}}</p>
                                 </a>
                                 <div class="product__content-price">
@@ -163,7 +163,7 @@
                         <div class="col-lg-3 col-md-6 col-6">
                             <div class="product__content-post">
                                 <a class="" href="{{route('product_detail',['id' => $item->id])}}">
-                                    <img src="{{asset('fe')}}/images/{{ ( $item->img )}}" alt="">
+                                    <img src="images/{{ ( $item->img )}}" alt="">
                                     <p>{{$item->name}}</p>
                                 </a>
                                 <div class="product__content-price">
@@ -191,7 +191,7 @@
                         <div class="col-lg-3 col-md-6 col-6">
                             <div class="product__content-post">
                                 <a class="" href="{{route('product_detail',['id' => $item->id])}}">
-                                    <img src="{{asset('fe')}}/images/{{ ( $item->img )}}" alt="">
+                                    <img src="images/{{ ( $item->img )}}" alt="">
                                     <p>{{$item->name}}</p>
                                 </a>
                                 <div class="product__content-price">

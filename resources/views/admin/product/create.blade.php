@@ -5,7 +5,7 @@
 <div class="form">
 
 
-    <form action="{{route('admin.product.create')}}" method="post">
+    <form action="{{route('admin.product.create')}}" method="post" enctype="multipart/form-data">
         @csrf
         {{ csrf_field() }}
         <div class="row">
@@ -41,7 +41,7 @@
                     <label for="">Category</label>
                     <select class="form-control" name="category_id" id="">
                         @foreach($category as $item)
-                        <option class="form-control" value="{{$item -> id}}">{{$item -> name}}</option>
+                        <option class="form-control" value="">{{$item -> name}}</option>
 
                         @endforeach
                     </select>
